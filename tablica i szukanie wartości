@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int min,max;
+int a,i;
+int tab[];
+
+
+void uzu(int a)
+{
+
+    for(i=0;i<a;i++)
+        tab[i]=rand()%21-10;
+
+    for(i=0;i<a;i++)
+        printf("%d\n",tab[i]);
+
+
+    min = tab[0];
+    max = tab[0];
+	for(int i=0;i<a;i++)
+		if(min>tab[i])
+			min = tab[i];
+
+    for(int i=0;i<a;i++)
+		if(max<tab[i])
+			max = tab[i];
+
+	printf("Najmniejsza wczytana liczba jest %d",min);
+    printf("\nNajwieksza wczytana liczba jest %d",max);
+}
+
+
+int main()
+{
+    srand(time(0));
+    printf("Podaj dlugosc tablicy: ");
+    scanf("%d",&a);
+    uzu(a);
+	return 0;
+}
